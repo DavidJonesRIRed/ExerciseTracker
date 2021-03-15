@@ -1,0 +1,47 @@
+
+POST http://localhost:5000/users/add
+Content-Type: application/json
+
+{
+    "userName" : "David"
+}
+
+###
+
+GET http://localhost:5000/users/
+
+###
+
+POST http://localhost:5000/exercises/add
+Content-Type: application/json
+
+{
+    "userName" : "David",
+    "description" : "bike ride",
+    "duration" : 30,
+    "date" : "2021-03-15T20:53:02.419Z"
+}
+
+###
+
+GET http://localhost:5000/exercises/
+
+###
+
+GET http://localhost:5000/exercises/604fca1cf03e9ad3c160d1cb
+
+###
+
+POST http://localhost:5000/exercises/update/604fca1cf03e9ad3c160d1cb
+Content-Type: application/json
+
+{
+    "userName" : "David",
+    "description" : "walk",
+    "duration" : 120,
+    "date" : "2021-03-15T20:53:02.419Z"
+}
+
+###
+
+DELETE http://localhost:5000/exercises/604fca1cf03e9ad3c160d1cb
