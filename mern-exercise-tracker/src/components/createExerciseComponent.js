@@ -14,7 +14,7 @@ export default class CreateExercise extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: '',
+      userName: '',
       description: '',
       duration: 0,
       date: new Date(),
@@ -27,8 +27,8 @@ export default class CreateExercise extends Component {
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
-            users: response.data.map(user => user.username),
-            username: response.data[0].username
+            users: response.data.map(user => user.userName),
+            userName: response.data[0].userName
           })
         }
       })
@@ -40,7 +40,7 @@ export default class CreateExercise extends Component {
 
   onChangeUsername(e) {
     this.setState({
-      username: e.target.value
+      userName: e.target.value
     })
   }
 
@@ -66,7 +66,7 @@ export default class CreateExercise extends Component {
     e.preventDefault();
 
     const exercise = {
-      username: this.state.username,
+      userName: this.state.userName,
       description: this.state.description,
       duration: this.state.duration,
       date: this.state.date
@@ -90,7 +90,7 @@ export default class CreateExercise extends Component {
           <select ref="userInput"
               required
               className="form-control"
-              value={this.state.username}
+              value={this.state.userName}
               onChange={this.onChangeUsername}>
               {
                 this.state.users.map(function(user) {

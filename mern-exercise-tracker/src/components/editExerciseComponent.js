@@ -14,7 +14,7 @@ export default class EditExercise extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: '',
+      userName: '',
       description: '',
       duration: 0,
       date: new Date(),
@@ -26,7 +26,7 @@ export default class EditExercise extends Component {
     axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
       .then(response => {
         this.setState({
-          username: response.data.username,
+          userName: response.data.userName,
           description: response.data.description,
           duration: response.data.duration,
           date: new Date(response.data.date)
@@ -40,7 +40,7 @@ export default class EditExercise extends Component {
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
-            users: response.data.map(user => user.username),
+            users: response.data.map(user => user.userName),
           })
         }
       })
@@ -52,7 +52,7 @@ export default class EditExercise extends Component {
 
   onChangeUsername(e) {
     this.setState({
-      username: e.target.value
+      userName: e.target.value
     })
   }
 
@@ -78,7 +78,7 @@ export default class EditExercise extends Component {
     e.preventDefault();
 
     const exercise = {
-      username: this.state.username,
+      userName: this.state.userName,
       description: this.state.description,
       duration: this.state.duration,
       date: this.state.date
@@ -102,7 +102,7 @@ export default class EditExercise extends Component {
           <select ref="userInput"
               required
               className="form-control"
-              value={this.state.username}
+              value={this.state.userName}
               onChange={this.onChangeUsername}>
               {
                 this.state.users.map(function(user) {

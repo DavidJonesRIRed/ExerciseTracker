@@ -9,13 +9,13 @@ export default class CreateUser extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: ''
+      userName: ''
     }
   }
 
   onChangeUsername(e) {
     this.setState({
-      username: e.target.value
+      userName: e.target.value
     })
   }
 
@@ -23,7 +23,7 @@ export default class CreateUser extends Component {
     e.preventDefault();
 
     const user = {
-      username: this.state.username
+      userName: this.state.userName
     }
 
     console.log(user);
@@ -32,7 +32,7 @@ export default class CreateUser extends Component {
       .then(res => console.log(res.data));
 
     this.setState({
-      username: ''
+      userName: ''
     })
   }
 
@@ -46,7 +46,7 @@ export default class CreateUser extends Component {
             <input  type="text"
                 required
                 className="form-control"
-                value={this.state.username}
+                value={this.state.userName}
                 onChange={this.onChangeUsername}
                 />
           </div>
